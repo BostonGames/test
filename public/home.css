@@ -1,0 +1,721 @@
+@charset "utf-8";
+/*----Z_INDEX VALUES---------------------------------------------------------
+ 
+ .fixedbg .backgroundWrapper: -10000
+
+.blvckBox00: -9000
+
+ bgVid: -50
+
+.conceptFrame: -10;
+
+.bottomImageAbsolute: -9;
+
+.gamesbox .blogbox .gallerybox: 0;
+
+.gamesIcon .blogBGpicFixed00: 1;
+
+.blogFrame: 2
+
+.upperShadow .lowerShadow: 15
+
+.gamesBanner .herobox: 20
+ 
+.bottomImageAbsolute: 999
+
+ footer: 10000
+
+ 
+ ----------------------------------------------------------------------------*/
+/*QUICK REFERECES:
+
+SIDES top | right | bottom | left 
+
+1em = 1x the font size of the element*/
+
+/*font-family: 'Montserrat','Roboto', 'Architects Daughter', Sans Serif!important;*/
+
+/*SHADOW h-offset v-offset blur spread color */
+
+/*common box shadow:   
+/*SHADOW | h-offset | v-offset | blur spread color 
+  box-shadow: var(commonboxshadow);
+  box-shadow: var(--main-commonboxshadow);
+
+/*h-shadow | v-shadow | blur-radius | color*/
+/*text-shadow: 2px 2px 4px #000000;
+
+h1 {
+  font-size: 5.9vw;
+}
+h2 {
+  font-size: 3.0vh;
+}
+p {
+  font-size: 2vmin;
+}
+-------------------------------------------------------------*/
+
+html,
+html * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Lato", Helvetica, sans-serif, "sans-serif";
+
+  /*get rid of safari radio buttons*/
+  -webkit-appearance: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  background-attachment: fixed;
+  background-repeat: repeat-y;
+
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 70px;
+}
+
+footer {
+  text-align: center;
+
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+  position: fixed;
+  max-width: 100%;
+  min-height: 30px;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  z-index: 1000;
+}
+
+/*see the @media max-width property. that way it goes away on mobile. */
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-size: 25px;
+}
+
+h2 {
+  font-size: 20px;
+  text-transform: uppercase;
+  padding-bottom: 15px;
+  font-weight: 900;
+}
+
+p {
+  text-decoration: none;
+  font-family: "Lato", Arial, "sans-serif";
+  font-size: 16px;
+  color: #f4f4f4;
+  text-align: left;
+}
+ul {
+  list-style-type: none;
+}
+
+/*for checkbox hacks mainly*/
+.visually-hidden {
+  position: absolute;
+  left: -100vw;
+  opacity: 0;
+}
+
+/*background images to simulate fixed bg on mobile*/
+.mobileUpperBG {
+  z-index: -10000;
+  position: fixed;
+  top: 0px;
+}
+.mobileUpperBG img {
+  max-width: 100vw;
+}
+.mobileLowerBG {
+  z-index: -10000;
+  position: fixed;
+  bottom: 0px;
+}
+.mobileLowerBG img {
+  max-width: 100vw;
+}
+
+.mobileupperLimage {
+  /*	z-index:999;*/
+  position: fixed;
+  left: 0px;
+  top: 0px;
+}
+.mobileupperLimage img {
+  width: 48vw;
+  min-height: 170px;
+}
+
+.mobileupperRimage {
+  /*	z-index:999;*/
+  position: fixed;
+  right: 0px;
+  top: 0px;
+}
+.mobileupperRimage img {
+  width: 48vw;
+  min-height: 170px;
+}
+
+.mobilemidLimage {
+  z-index: -10000;
+  position: fixed;
+  left: 0px;
+  bottom: 120px;
+}
+.mobilemidLimage img {
+  height: 150px;
+}
+
+.mobilelowerLimage {
+  z-index: -10000;
+  position: fixed;
+  right: 20px;
+  bottom: 8px;
+}
+.mobilelowerLimage img {
+  height: 150px;
+}
+
+#gamesButton img {
+  height: 80px;
+}
+
+#merchButton img {
+  height: 80px;
+}
+
+#blogButton img {
+  height: 70px;
+}
+
+/*use this when you want to just have a pic be in one of the panels and nothing else*/
+.picFillsBox img {
+  overflow: auto;
+  width: 100%;
+  border-radius: 15%;
+  /*border: 2px rgba(255,255,255,0.70) solid;*/
+  z-index: 1;
+}
+
+.centerContent {
+  text-align: center;
+}
+
+/*have to set the float for our rows "curing the float"*/
+/*this puts the columns in their assigned row*/
+.row:before,
+.row:after {
+  content: "";
+  display: table;
+}
+
+.row:after {
+  clear: both;
+}
+
+/**************************************************MOBILE ONLY*************************************************************************/
+@media (max-width: 767px) {
+  .forDesktop {
+    display: none;
+  }
+  video#bgvideo {
+    display: none;
+  }
+  .row {
+    /*		border-width:  4px;border-style: solid;  border-color: red;*/
+    width: 100vw;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .column {
+    /*		border-width:  4px;border-style: solid;  border-color: blue;*/
+
+    width: 90vw;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .column-forIcon {
+    /*border-width:  4px;border-style: solid;  border-color: rgba(81,0,252,1.00);*/
+    display: table-cell;
+
+    width: 33vw;
+
+    /*THE TEXT STYLE FOR GAME BUTTONS*/
+    text-align: center;
+  }
+  .column-50-50 {
+    display: table-cell;
+
+    width: 50vw;
+
+    /*THE TEXT STYLE FOR GAME BUTTONS*/
+    text-align: center;
+  }
+  .tableContainer {
+    /*	border-width:  4px;border-style: solid;  border-color: lawngreen;*/
+  }
+  .universalIconButtonProperties {
+    /*this number centers the buttons assuming there are only *3* of them at 25vw each*/
+    margin-top: 3.3vw;
+    margin-bottom: 3.3vw;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: -3px 4px 15px 2px rgba(0, 0, 0, 0.49);
+
+    z-index: 200;
+  }
+
+  .mobileLayer {
+    /*RADIAL TOP RIGHT GRADIENT*/
+
+    z-index: 10;
+  }
+
+  .mobileIconButton0 {
+    /*	border-width:  4px;	border-style: solid;  border-color:white;*/
+    width: 25vw;
+    height: 25vw;
+    border-radius: 15%;
+    background-image: linear-gradient(to top right, rgba(0, 0, 255, 0), rgba(255, 255, 255, 0.44)), url("/images/IMG_3229.PNG");
+
+    background-size: cover;
+    background-repeat: no-repeat, no-repeat;
+
+    z-index: 100000;
+  }
+  .mobileIconButton1 {
+    /*	border-width:  4px;	border-style: solid;  border-color:rgba(75,255,129,1.00);*/
+    width: 25vw;
+    height: 25vw;
+    border-radius: 15%;
+    background-image: linear-gradient(to top right, rgba(0, 0, 255, 0) 20%, rgba(255, 255, 255, 0.34)), url("/images/gameThumb2.png");
+    background-position: center;
+    background-size: cover;
+
+    background-repeat: no-repeat;
+  }
+  .mobileIconButton2 {
+    /*	border-width:  4px;	border-style: solid;  border-color:rgba(153,198,255,1.00);*/
+    width: 25vw;
+    height: 25vw;
+    border-radius: 15%;
+    background-image: linear-gradient(to top right, rgba(0, 0, 255, 0) 40%, rgba(255, 255, 255, 0.04)), url("/images/desktop_SpiritForest1.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .mobileIconButton3 {
+    /*border-width:  4px;	border-style: solid;  border-color:rgba(255,178,81,1.00);*/
+    width: 35vw;
+    height: 35vw;
+    border-radius: 15%;
+    background-image: linear-gradient(to top right, rgba(0, 0, 255, 0) 40%, rgba(255, 255, 255, 0.04)), url("/images/merch_redBlu0.png");
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 90px;
+
+    z-index: -10;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .mobileIconButton4 {
+    /*	border-width:  4px;	border-style: solid;  border-color:rgba(249,30,255,1.00);*/
+    width: 35vw;
+    height: 35vw;
+    border-radius: 15%;
+    background-image: linear-gradient(to top right, rgba(0, 0, 255, 0) 40%, rgba(255, 255, 255, 0.44)), url("/images/blog_vaporwave4.png");
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 90px;
+
+    z-index: -10;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  body {
+    background-color: #1b8eba;
+    background-size: contain;
+    background-repeat: repeat-y;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  h1 {
+    color: rgba(255, 255, 255, 0.81);
+    font-size: 35px;
+    text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.9);
+  }
+  h3 {
+    font-family: "Montserrat", "lato", Tacoma;
+    color: rgba(255, 255, 255, 0.81);
+    text-transform: none;
+
+    font-weight: 500;
+    font-size: 15px;
+    padding-bottom: 25px;
+  }
+
+  .box0 {
+    width: 100vw;
+    background-color: rgba(255, 255, 255, 0.22);
+    border-top: 2px solid rgba(255, 255, 255, 0.76);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.76);
+
+    margin-top: 45px;
+    margin-bottom: 45px;
+
+    padding: 25px;
+
+    /*for corner images to work?*/
+    position: relative;
+    z-index: 1;
+  }
+  /*-----------------------------------------------CLOUDS-------------------------------*/
+  .box0 .clouds img {
+    position: absolute;
+    overflow: auto;
+    max-height: 100px;
+    max-width: 377px;
+  }
+  /*make the top/bottom 1/2 the height of the cloud image so it looks like the video content box is framed inside nicely*/
+  .upperLimage img {
+    top: -50px;
+    left: 0px;
+
+    z-index: 10;
+  }
+  .upperRimage img {
+    top: -50px;
+    right: 0px;
+
+    z-index: 10;
+  }
+  .lowerLimage img {
+    bottom: -50px;
+    left: 0px;
+
+    z-index: 10;
+  }
+  .lowerRimage img {
+    bottom: -50px;
+    right: 0px;
+
+    z-index: 10;
+  }
+
+  /*lower layer corner images*/
+  .backupperLimage img {
+    top: -50px;
+    left: 0px;
+
+    z-index: -10;
+  }
+  .backupperRimage img {
+    top: -50px;
+    right: 0px;
+
+    z-index: -10;
+  }
+  .backlowerLimage img {
+    bottom: -50px;
+    left: 0px;
+
+    z-index: -10;
+  }
+  .backlowerRimage img {
+    bottom: -50px;
+    right: 0px;
+
+    z-index: -10;
+  }
+  /*-----------------------------------------------END CLOUDS-------------------------------*/
+  .gamesTitle {
+    display: block;
+    width: 100vw;
+    background-image: url("images/games_banner0.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-height: 80px;
+  }
+  .mobileHeader {
+    margin-bottom: 25px;
+    padding-top: 30px;
+    z-index: 1001;
+  }
+  .mobileLogo {
+  }
+  .mobileLogo img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    background-color: transparent;
+    width: 45vw;
+
+    max-width: 200px;
+    max-height: 200px;
+
+    z-index: 1000;
+  }
+
+  #fixedBox1Img {
+    height: 85px;
+    margin-bottom: 15px;
+  }
+
+  #mobileBlogButton img {
+    height: 70px;
+  }
+
+  .blvckBox {
+    /*	height: 100vh;
+    width: 100vw;*/
+    background-image: linear-gradient(to right, rgba(194, 255, 182, 0.6), rgba(255, 163, 182, 0.6), rgba(221, 169, 255, 0.6), rgba(162, 209, 255, 0.6));
+
+    background-size: 100%;
+  }
+
+  .blvckBox img {
+  }
+
+  .mobileContainer {
+    /*border-width:  4px;border-style: solid;  border-color: blue;*/
+    background-image: url();
+
+    min-height: 30vw;
+
+    width: 87%;
+
+    position: relative;
+    z-index: 500;
+  }
+  .mobileContainer img {
+    /*these are specific to the cloud graphic
+		position: absolute;
+		min-height: 100%;
+		min-width: 100%;
+*/
+  }
+
+  .text {
+    /*border-width:  4px;border-style: solid;  border-color: rgba(3,255,165,1.00);*/
+
+    padding: 10%;
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    top: 0;
+    left: 0;
+
+    z-index: 0;
+  }
+
+  .style-nav ul li {
+    /*make horizontal*/
+    display: inline;
+  }
+
+  .socials {
+    /*border-width:  4px;border-style: solid;  border-color: rgba(3,255,165,1.00);*/
+
+    /*centers them*/
+    display: table;
+    margin: 0 auto;
+
+    margin-top: 45px;
+    margin-bottom: 25px;
+  }
+
+  .socials img {
+    height: 55px;
+    width: 55px;
+  }
+
+  footer {
+    background: linear-gradient(rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.64));
+    padding-top: 40px;
+    padding-bottom: 3px;
+    min-height: 20px;
+    position: fixed;
+    max-width: 100%;
+
+    left: 0px;
+    width: 100%;
+    z-index: 1000;
+  }
+
+  .footer1 {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100vw;
+    max-width: 130%;
+    z-index: 999;
+  }
+  .footer1 img {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100vw;
+    max-width: 100vw;
+    z-index: 999;
+  }
+
+  .footer2 {
+    background: linear-gradient(rgba(0, 0, 0, 0) 60%, rgba(255, 255, 255, 0.44));
+    padding-top: 40px;
+    padding-bottom: 3px;
+    min-height: 220px;
+    position: fixed;
+    max-width: 100%;
+    bottom: 0px;
+    left: 0px;
+    width: 100vw;
+    z-index: 900;
+  }
+
+  #copyright1 {
+    bottom: 5px;
+    font-family: Gotham, "Lato", Helvetica, Arial, "sans-serif";
+    text-align: center;
+    font-size: 12px;
+    color: rgba(241, 241, 241, 1);
+    z-index: 2000;
+  }
+}
+
+@media (max-width: 501px) {
+  .mobileupperLimage {
+    display: none;
+  }
+  .mobileupperRimage {
+    display: none;
+  }
+}
+
+/*********************************************************DESKTOP VIEW******************************************************************************************/
+/*properties inactive until the window is at least 768 pixels wide*/
+@media (min-width: 768px) {
+  /*HIDES ALL MOBILE CONTENT*/
+  .forMobile {
+    display: none;
+  }
+
+  body {
+    background-color: #191b25;
+    background-image: url("/images/q4_2020MeowmersPixelArt00.gif");
+    background-position: center;
+    background-repeat: no-repeat;
+    max-width: 900px;
+  }
+
+  .tempMssg {
+    position: fixed;
+    top: 35px;
+    left: 35px;
+    width: 300px;
+    padding: 25px;
+
+    background-color: black;
+    color: rgba(235, 235, 235, 1);
+
+    font-family: "Roboto", Helvetica, Arial, "sans-serif";
+  }
+
+  .style-logo {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .style-nav ul {
+    list-style-type: none;
+  }
+
+  .style-nav ul li {
+    display: inline;
+  }
+
+  main .column {
+    /*this puts padding between the tiles*/
+    margin-bottom: 10px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .style-logo {
+    float: center;
+
+    padding-bottom: 20px;
+  }
+
+  body {
+    max-width: none;
+  }
+
+  body header {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /*SCROLLBAR START*/
+
+  ::-webkit-scrollbar-track {
+    /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);*/
+    border-radius: 10px;
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: rgba(255, 47, 0, 0.17);
+  }
+  /*scrollbar end*/
+
+  #copyright1 {
+    font-family: "lato", "Helvetica Neue", Helvetica, Arial, "sans-serif";
+    text-align: center;
+    font-size: 12px;
+    color: #606890;
+  }
+
+  .socials {
+    top: 5px;
+    right: 5px;
+  }
+  .socials img {
+    height: 30px;
+    width: 30px;
+  }
+}
